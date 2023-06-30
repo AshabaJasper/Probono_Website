@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Under Development</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #88ff88 10%, #5bc1ac 100%);
+            font-family: Arial, sans-serif;
+        }
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 50px;
+            background-color: #fff;
+            border-radius: 15px;
+            text-align: center;
+            width: 500px;
+            max-width: 100%;
+            transition: transform 0.5s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        h1 {
+            color: #5bc1ac;
+            
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #5bc1ac, 0 0 20px #5bc1ac, 0 0 30px #5bc1ac, 0 0 40px #5bc1ac;
+            }
+            to {
+                text-shadow: 0 0 20px #5bc1ac, 0 0 30px #5bc1ac, 0 0 40px #5bc1ac, 0 0 50px #5bc1ac, 0 0 60px #5bc1ac;
+            }
+        }
+        p {
+            color: #666;
+        }
+        .construction-image {
+            width: 100px;
+            height: 100px;
+        }
+        .button {
+            background-color: #5bc1ac;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 15px;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #88ff88;
+        }
+        .timer {
+            margin: 20px 0;
+            font-size: 20px;
+            color: #5bc1ac;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img class="construction-image" src="https://img.icons8.com/dusk/64/000000/development-skill.png"/>
+        <h1>Under Development</h1>
+        <p>This page is currently under development. Please check back soon!</p>
+        <div id="timer" class="timer"></div>
+        <a class="button" href="index.html">Return Home</a>
+    </div>
+    <script>
+        var target_date = new Date("Aug 5, 2023").getTime();
+        var countdown = document.getElementById("timer");
+
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = target_date - now;
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            countdown.innerHTML = "Expected in: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            if (distance < 0) {
+                clearInterval(x);
+                countdown.innerHTML = "Now Live!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
